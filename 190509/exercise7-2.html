@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 7.2</title>
+    </head>
+<body>
+<script type="text/javascript">
+var A = [ 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+var counter;
+for(counter in A) {
+    if(counter == 5) break;
+    document.write(A[counter] + " ");
+}
+document.write("<br><br>You have exited the loop.");
+document.write("<br>");
+document.write("<br>");
+for(var i=0; i<10; i++) {
+    if(i == 2 || i == 3 || i == 5) continue;
+    document.write(A[i] + " ");
+}
+document.write("<br><br>You have exited the loop.");
+</script>
+</body>
+</html>
