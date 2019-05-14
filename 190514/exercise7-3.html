@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function add(num1, num2) {
+                return num1+num2;
+            }
+
+            function sub(num1, num2) {
+                return num1-num2;
+            }
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var one = prompt("첫 번째 숫자 입력");
+            var two = prompt("두 번째 숫자 입력");
+
+            var add = add(parseInt(one), parseInt(two));
+            var sub = sub(parseInt(one), parseInt(two));
+
+            document.write(one + " + " + two + " = " + add + "<br>");
+            document.write(one + " - " + two + " = " + sub + "<br>");
+        </script>
+    </body>
+</html>
