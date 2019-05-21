@@ -4,21 +4,30 @@
         <script type="text/javascript">
             var wd = new Array();
             var p = 0;
+            
             function openWindow() {
-                wd[p] = window.open("http://naver.com/"); 
-                p++;
+                if(wd[p] == null) {
+                    wd[p] = window.open("http://naver.com/");
+                    var text = document.getElementById('text');
+                    text.innerText = "Opened Windows : " + Number(p + 1);
+                    p++;
+                }
             }
 
             function closeWindow() {
-                for(var i=0; i<p; i++) {
-                    wd[i].close();
+                if(wd[p-1] != null) {
+                    p--;
+                    wd[p].close(wd[p]);
+                    wd[p] = null;
+                    var text = document.getElementById('text');
+                    text.innerText = "Opened Windows : " + Number(p);
                 }
-                p = 0;
             }
         </script>
     </head>
     <body>
         <input type="button" value="Open Window" onclick="openWindow()">
         <input type="button" value="Close Window" onclick="closeWindow()">
+        <p id="text">Opened Windows : 0</p>
     </body>
 </html>
