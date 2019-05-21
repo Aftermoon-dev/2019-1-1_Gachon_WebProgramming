@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function println(x) {
+                if(x != undefined) document.write(x);
+                document.write("<br>");
+            }
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var date = new Date(), then = new Date();
+            println(date.toString());
+
+            date.setDate(then.getDate()+5);
+            date.setHours(then.getHours()+3);
+            date.setMinutes(then.getMinutes()+25);
+            println(date.toString());
+
+            date.setDate(date.getHours()+26);
+            date.setDate(date.getMinutes()+78);
+            println(date.toString());
+
+            var wd = date.getDay();
+            var wds = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            println(wds[wd]);
+
+            var ma = Math.max(Math.E, Math.LN2, Math.LN10, Math.LOG2E, Math.LOG10E, Math.PI, Math.SQRT1_2, Math.SQRT2);
+            var mi = Math.min(Math.E, Math.LN2, Math.LN10, Math.LOG2E, Math.LOG10E, Math.PI, Math.SQRT1_2, Math.SQRT2);
+            var rd = Math.round(Math.E);
+            println(ma.toString());
+            println(mi.toString());
+            println(rd.toString());
+
+        </script>
+    </body>
+</html>
