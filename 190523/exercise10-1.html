@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+    <body>
+        <h2 id="heading">JS EX</h2>
+        <h3 id="ex1">EX 1</h3><a id="a1" name="EX1"/>
+        <p>Change the following image to a grape whose width is 300.</p>
+        <img id="img1" src="https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201606271147" width="200">
+        <script>
+            // Add your code here.. (Exercise 10.1.1)
+            var head = document.getElementById("heading");
+            head.innerHTML = "JavaScript Exercise 10.1";
+            document.getElementById("ex1").innerHTML = "Exercise 1";
+            var image = document.getElementById("img1");
+            image.src = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Table_grapes_on_white.jpg";
+            image.width = "300";
+        </script>
+        <h3 id="ex2">Exercise 2</h3>
+        <p>Go to <a href="#EX1">Exercise 1</a>.<br/>
+        The name of anchor "a1" is: <span id="sp1"></span></p>
+        <script>
+            // Add your code here.. (Exercise 10.1.2)
+            document.getElementById("sp1").innerHTML = document.getElementById("a1").name;
+            document.getElementById("ex2").style = "color: red; font-style: italic;";
+        </script>
+    </body>
+</html>
