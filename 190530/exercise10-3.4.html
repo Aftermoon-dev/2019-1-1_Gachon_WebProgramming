@@ -1,0 +1,122 @@
+﻿<html>
+    <head>
+        <script src="validate.js"></script>
+        <script type="text/javascript">
+            var count = 0;
+            var count2 = 0;
+            var check = null;
+            var check2 = null;
+            
+            function Timer() {
+                if(check == null) {
+                    check = setInterval('textChange("count", count)', 500);
+                    count = 0;
+                }
+                else {
+                    clearInterval(check);
+                    check = null;
+                }
+            }
+
+            function Timer2() {
+                if(check2 == null) {
+                    check2 = setInterval('TimerChange("timers", count2)', 1000);
+                    clear = setTimeout('TimerStop()', 6000);
+                }
+            }
+
+            function textChange(id, text) {
+                count++;
+                document.getElementById(id).value = text;
+            }
+
+            function TimerChange(id, text) {
+                count2++;
+                
+                if(count2 <= 2) {
+                    document.getElementById(id).value = text + " second";
+                }
+                else {
+                    document.getElementById(id).value = text + " seconds";
+                }
+                
+            }
+
+            function TimerStop() {
+                count2 = 0;
+                clearInterval(check2);
+                check2 = null;
+            }
+
+            function validate() {
+                var error = document.getElementById('error').innerHTML;
+                var email = document.getElementById('email').value;
+                var emailag = document.getElementById('email_ag').value;
+                var phone = document.getElementById('phone').value;
+                if(validateEmail(email)) {
+                    if(email == emailag) {
+                        if(validatePhone(phone)) {
+                            document.getElementById('error').innerHTML = "";
+                            return true;
+                        }
+                        else {
+                            document.getElementById('error').innerHTML = "Phone Number is not validate.";
+                            return false;
+                        }
+                    }
+                    else {
+                        document.getElementById('error').innerHTML = "Email & Email Again is not validate.";
+                        return false;
+                    }
+                }
+                else {
+                    document.getElementById('error').innerHTML = "Email is not validate.";
+                    return false;
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h3>Exercise 10.3.1</h3>
+        <a href="http://google.com" name="google">Google</a><br/>
+        <a href="http://naver.com" name="naver">Naver</a><br/>
+        <a href="http://daum.net">Daum (without a name)</a>
+        <script type="text/javascript">
+            document.write("<br>");
+            document.write("Number of Links : " + document.links.length);
+            document.write("<br>");
+            document.write("Number of Anchors : " + document.anchors.length);
+            document.write("<br>");
+            document.write("First Anchor's Name : " +document.anchors[0].name);
+            document.write("<br>");
+            document.write("First Anchor's HTML : " +document.anchors[0].innerHTML);
+            document.write("<br>");
+            document.write("Third Anchor's HTML : " +document.links[2].innerHTML);
+        </script>
+        <br>
+        <br>
+        <h3>Exercise 10.3.2</h3>
+        Counter : <input type="text" id="count">
+        <br>
+        <button id="start" onclick="Timer()">Start</button>
+        <button id="stop" onclick="Timer()">Stop</button>
+        <br>
+        <br>
+        <h3>Exercise 10.3.3</h3>
+        Timer : <input type="text" id="timers">
+        <br>
+        <button id="startt" onclick="Timer2()">Start Timer</button>
+        <br>
+        <br>
+        <form name="form1" onsubmit="return validate()">
+            <h1>Create Account</h1>
+            <p>Your name : <input type="text" id="name"></p>
+            <p>Email : <input type="text" id="email"></p>
+            <p>Email again : <input type="text" id="email_ag"></p>
+            <p>Mobile phone : <input type="text" id="phone"></p>
+            <p id="error" style="color: red;"></p>
+            <input type="submit" value="Create" onclick="validate()">
+        </form>
+        </body>
+</html>
